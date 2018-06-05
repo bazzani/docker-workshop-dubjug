@@ -1,0 +1,5 @@
+docker build -t figlet .
+
+docker run figlet salut
+
+docker run -it -h figlet --entrypoint "./bin/bash" figlet

@@ -1,0 +1,15 @@
+# Run these these commands to install Docker in linux
+########
+curl -sSL https://get.docker.com/ | sh
+wget -qO- https://get.docker.com/ | sh
+#####################################################
+
+# Run these these commands to install Docker in Windows
+https://store.docker.com/editions/community/docker-ce-desktop-windows
+#####################################################
+
+docker version
+
+docker run ubnutu echo "Hello DubJUG"
+
+docker run -i -t ubuntu "/bin/bash"

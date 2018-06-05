@@ -1,0 +1,27 @@
+ID=$(docker run -d ubuntu sh -c "while true; do echo tick; sleep 1; done")
+docker attach $ID
+
+ID=$(docker run -d ubuntu sh -c "while true; do sleep 1; done")
+docker exec $ID echo "Hello DubJUG" 
+docker exec $ID "/bin/bash" ## TODO check this in PS
+
+ID=$(docker run -d ubuntu sh -c "trap 'echo got sig' 2; while true; do sleep 1; done")
+docker kill -s 2 $ID
+docker logs $ID
+docker kill $ID
+
+docker rm -v $(docker ps -aq)
+
+ID=$(docker run -d ubuntu touch /NEWFILE)
+docker diff $ID
+docker events
+
+ID=$(docker run -h www --name www -d -P nginx)
+docker port $ID
+docker port $ID 80
+docker port $ID 80/tcp
+
+docker top $ID
+
+ID=$(docker run -d ubuntu touch /NEWFILE)
+docker commit -a "Barry Evans" -m "Comment" $ID newfile:test

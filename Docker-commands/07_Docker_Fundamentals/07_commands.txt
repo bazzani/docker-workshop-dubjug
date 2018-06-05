@@ -1,0 +1,3 @@
+docker history barryevans80/cowsay-dubjug
+
+docker history --no-trunc barryevans80/cowsay-dubjug > cowsay-dubjug_history.txt

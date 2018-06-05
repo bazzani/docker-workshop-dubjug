@@ -1,0 +1,6 @@
+docker run -h ubuntu -i -t ubuntu "/bin/bash"
+	echo ""Hello DubJUG"
+
+docker run -h ubuntu -e var1="hello" -t ubuntu env
+
+docker run -h "myhost" ubuntu hostname

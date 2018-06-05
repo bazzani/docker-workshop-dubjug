@@ -1,0 +1,7 @@
+docker pull nginx
+docker run -h www --name www -d -p 8000:80 nginx
+docker ps
+curl localhost:8000
+
+ID=$(docker run -h www --name www -d -P nginx)
+docker port $ID 80

@@ -1,0 +1,11 @@
+docker run --name cowsay -h cowsay -i -t ubuntu "/bin/bash"
+
+apt-get update
+...
+apt-get install -y fortune-mod cowsay
+...
+/usr/games/fortune | /usr/games/cowsay
+
+docker commit cowsay dubjug/cowsay
+
+docker run dubjug/cowsay "/usr/games/cowsay" "Muh"

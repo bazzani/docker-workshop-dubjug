@@ -1,0 +1,15 @@
+ID=$(docker ps -q) #get container ID
+
+docker run -h container -i -t ubuntu "/bin/bash"
+
+docker inspect $ID
+
+docker inspect $ID | grep IPAddress
+
+docker inspect --format {{.NetworkSettings.IPAddress}} $ID
+
+docker diff $ID
+
+docker rm $ID
+
+docker rm -v $(docker ps -aq -f status=exited)

@@ -1,0 +1,24 @@
+docker build -t barryevans80/cowsay-dubjug .
+docker login
+docker push barryevans80/cowsay-dubjug
+
+docker build -t barryevans80/cowsay-dubjug:stable .
+
+docker pull barryevans80/cowsay-dubjug
+
+###############
+openjdk
+#######
+
+docker pull openjdk
+
+mkdir openjdk-jshell; cd openjdk-jshell
+
+### Copy Dockerfile
+	https://github.com/docker-library/openjdk/blob/cbbefa82b92964e6fd98b20353be7010f970c60a/9-jdk/Dockerfile
+
+docker build -t test/openjdk-jshell .
+docker run -i -t test/openjdk-jshell
+
+	String s = "DubJUG members RoCk!!!"
+	System.out.println("Its true... " + s)

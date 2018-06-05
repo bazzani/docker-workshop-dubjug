@@ -1,0 +1,5 @@
+docker build -t figlet .
+
+docker run figlet
+
+docker run -h figlet -it figlet "/bin/bash"

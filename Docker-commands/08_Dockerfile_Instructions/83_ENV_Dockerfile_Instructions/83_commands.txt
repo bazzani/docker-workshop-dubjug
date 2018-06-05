@@ -1,0 +1,3 @@
+docker run -it -h figlet --entrypoint "./bin/bash" figlet
+
+echo $MYVERSION

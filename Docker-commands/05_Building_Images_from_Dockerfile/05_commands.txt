@@ -1,0 +1,43 @@
+mkdir cowsay
+cd cowsay
+touch Dockerfile
+vim Dockerfile
+
+	FROM ubuntu
+	RUN apt-get update && apt-get install -y fortune-mod cowsay
+
+ls Dockerfile
+docker build -t dubjug/cowsay-dockerfile .
+
+docker run dubjug/cowsay-dockerfile "/usr/games/cowsay" "Muh"
+
+	### List all Cowsay skins
+	for i in $(/usr/games/cowsay -l); do /usr/games/cowsay -f $i "$i"; done
+
+
+#####
+ENTRYPOINT
+##########
+	ENTRYPOINT "/usr/games/cowsay" "MuH"
+
+docker build -t dubjug/cowsay-dockerfile .
+docker run dubjug/cowsay-dockerfile
+
+
+#####
+COPY
+####
+docker build -t dubjug/cowsay-dockerfile .
+docker run dubjug/cowsay-dockerfile "./app.sh"
+
+docker run dubjug/cowsay-dockerfile "./app.sh" "Muh" "Muh"
+
+
+#####
+Volumes
+#######
+docker run --name dhost -h dhost -v /data -i -t ubuntu "/bin/bash"
+
+mkdir -p ~/vol/dhost
+
+docker run --name dhost -h dhost -v ~/vol/dhost:/data -i -t ubuntu "/bin/bash"
