@@ -1,0 +1,2 @@
+docker build -t nginx-dubjug .
+docker run -p 9000:80 nginx-dubjug
