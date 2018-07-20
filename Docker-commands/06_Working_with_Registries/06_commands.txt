@@ -14,13 +14,16 @@ docker pull openjdk
 
 mkdir openjdk-jshell; cd openjdk-jshell
 
+
+### OpenJDK Docker Gihub repo
+	https://github.com/docker-library/openjdk
+
 ### Build an image from the URL
-	docker build -t test/openjdk-jshell https://raw.githubusercontent.com/docker-library/openjdk/59b305bb797b6cb60fa41e74448a68b4f0cdb813/10/jdk/Dockerfile
+	docker build -t test/openjdk-jshell https://raw.githubusercontent.com/docker-library/openjdk/master/10/jdk/Dockerfile
 
 ### Or copy the Dockerfile
-	https://raw.githubusercontent.com/docker-library/openjdk/59b305bb797b6cb60fa41e74448a68b4f0cdb813/10/jdk/Dockerfile
-
-	docker build -t test/openjdk-jshell .
+	curl https://raw.githubusercontent.com/docker-library/openjdk/master/10/jdk/Dockerfile > Dockerfile-openjdk
+	docker build -t test/openjdk-jshell -f ./Dockerfile-openjdk .
 
 docker run -i -t test/openjdk-jshell
 
